@@ -111,7 +111,7 @@ export default function HowItWorksPage() {
             <div key={step} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "2rem", alignItems: "start" }} className="step-row">
               {/* Left: icon + connector */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem", paddingTop: "0.25rem" }}>
-                <div style={{ width: "56px", height: "56px", borderRadius: "12px", background: "rgba(242,92,5,0.10)", border: "1px solid rgba(242,92,5,0.22)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div className="step-icon-box" style={{ width: "56px", height: "56px", borderRadius: "12px", background: "rgba(242,92,5,0.10)", border: "1px solid rgba(242,92,5,0.22)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Icon size={24} style={{ color: "#F25C05" }} />
                 </div>
                 <div className="step-connector" style={{ width: "1px", height: "100%", minHeight: "80px", background: "linear-gradient(to bottom, rgba(242,92,5,0.3), transparent)" }} />
@@ -119,8 +119,8 @@ export default function HowItWorksPage() {
 
               {/* Right: content */}
               <div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
-                  <span className="display-font" style={{ fontSize: "3.5rem", color: "rgba(0,0,0,0.06)", lineHeight: 1 }}>{step}</span>
+                <div className="step-heading-row" style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                  <span className="display-font step-ghost-number" style={{ fontSize: "3.5rem", color: "rgba(0,0,0,0.06)", lineHeight: 1 }}>{step}</span>
                   <h2 className="display-font" style={{ fontSize: "2.25rem", color: "#1A1A1A" }}>{title}</h2>
                 </div>
                 <p style={{ fontFamily: "var(--font-body)", fontSize: "1.0625rem", color: "#636666", marginBottom: "1.5rem", lineHeight: 1.6 }}>{summary}</p>
@@ -200,9 +200,12 @@ export default function HowItWorksPage() {
       </section>
 
       <style>{`
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .step-row { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
           .step-connector { display: none !important; }
+          .step-ghost-number { display: none !important; }
+          .step-icon-box { width: 40px !important; height: 40px !important; border-radius: 8px !important; }
+          .step-heading-row { gap: 0.5rem !important; margin-bottom: 0.5rem !important; }
         }
       `}</style>
     </>
