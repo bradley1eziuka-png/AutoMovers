@@ -158,7 +158,7 @@ export default function HomePage() {
       </div>
 
       {/* STATS */}
-      <section style={{ background: "#FFFFFF", borderBottom: "1px solid #EBEBEB", padding: "5rem 1.5rem 3.5rem" }}>
+      <section className="section-pad" style={{ background: "#FFFFFF", borderBottom: "1px solid #EBEBEB", padding: "5rem 1.5rem 3.5rem" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "2rem" }} className="stats-grid">
           {stats.map(({ value, label }) => (
             <div key={label} style={{ textAlign: "center" }}>
@@ -170,9 +170,9 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section style={{ padding: "6rem 1.5rem", background: "#F8F9FA" }}>
+      <section className="section-pad" style={{ padding: "6rem 1.5rem", background: "#F8F9FA" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <div className="section-head" style={{ textAlign: "center", marginBottom: "3rem" }}>
             <div className="section-tag" style={{ justifyContent: "center" }}>Simple Process</div>
             <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", color: "#1A1A1A" }}>
               Four Steps to <span className="text-gradient-orange">Your Door</span>
@@ -205,9 +205,9 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section style={{ padding: "6rem 1.5rem", background: "#FFFFFF", borderTop: "1px solid #EBEBEB" }}>
+      <section className="section-pad" style={{ padding: "6rem 1.5rem", background: "#FFFFFF", borderTop: "1px solid #EBEBEB" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <div className="section-head" style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div className="section-tag" style={{ justifyContent: "center" }}>What We Ship</div>
             <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", color: "#1A1A1A" }}>Transport Options</h2>
           </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY US */}
-      <section style={{ padding: "6rem 1.5rem", background: "#F0F2F4", borderTop: "1px solid #E4E6E8", borderBottom: "1px solid #E4E6E8" }}>
+      <section className="section-pad" style={{ padding: "6rem 1.5rem", background: "#F0F2F4", borderTop: "1px solid #E4E6E8", borderBottom: "1px solid #E4E6E8" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "start" }} className="why-grid">
             {/* Image column */}
@@ -279,9 +279,9 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ padding: "6rem 1.5rem", background: "#FFFFFF" }}>
+      <section className="section-pad" style={{ padding: "6rem 1.5rem", background: "#FFFFFF" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <div className="section-head" style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div className="section-tag" style={{ justifyContent: "center" }}>Customer Stories</div>
             <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", color: "#1A1A1A" }}>Delivered on Every Promise</h2>
           </div>
@@ -290,9 +290,9 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "6rem 1.5rem", background: "#F8F9FA", borderTop: "1px solid #E8E8E8" }}>
+      <section className="section-pad" style={{ padding: "6rem 1.5rem", background: "#F8F9FA", borderTop: "1px solid #E8E8E8" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <div className="section-head" style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div className="section-tag" style={{ justifyContent: "center" }}>Common Questions</div>
             <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", color: "#1A1A1A" }}>FAQ</h2>
           </div>
@@ -311,7 +311,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA BANNER */}
-      <section style={{ padding: "5rem 1.5rem", background: "linear-gradient(135deg,#F25C05 0%,#D94E00 100%)", textAlign: "center", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ padding: "5rem 1.5rem", background: "linear-gradient(135deg,#F25C05 0%,#D94E00 100%)", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E\")" }} />
         <div style={{ position: "relative", maxWidth: "700px", margin: "0 auto" }}>
           <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,5vw,5rem)", color: "#fff", marginBottom: "1rem" }}>Ready to Ship Your Vehicle?</h2>
@@ -327,6 +327,8 @@ export default function HomePage() {
         @media (max-width: 768px) {
           .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
           .why-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+          .section-pad { padding: 3rem 1.25rem !important; }
+          .section-head { margin-bottom: 2rem !important; }
         }
         @media (max-width: 640px) {
           .hero-quote-bar { flex-direction: column !important; }
