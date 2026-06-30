@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@/lib/supabase/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TEAM_EMAIL = process.env.TEAM_EMAIL || "team@usautomovers.com";
 const FROM_EMAIL = process.env.FROM_EMAIL || "noreply@usautomovers.com";
 
@@ -27,6 +25,7 @@ function formatTransport(val: string) {
 
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await request.json();
 
     const {
