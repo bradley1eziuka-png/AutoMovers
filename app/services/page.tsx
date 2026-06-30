@@ -16,6 +16,7 @@ const services = [
     price: "From $75",
     headline: "The standard. The reliable. The affordable.",
     desc: "Open transport places your vehicle on a multi-car carrier, the same method auto dealerships use when moving inventory across the country. It's exposed to the elements, but your vehicle is secured and insured throughout the journey.",
+    mobiledesc: "Your vehicle on a multi-car carrier — the same method dealerships use. Secure, insured, and the most affordable option.",
     bestFor: ["Standard sedans, SUVs, and trucks", "Budget-conscious moves", "Non-urgent timelines", "Any vehicle in good condition"],
     notFor: ["Classic cars or show cars", "High-value exotics", "Vehicles you're concerned about road debris"],
   },
@@ -26,6 +27,7 @@ const services = [
     price: "From $150",
     headline: "Full protection. Total peace of mind.",
     desc: "Your vehicle rides inside a fully enclosed trailer, shielded from weather, road debris, and prying eyes. Enclosed transport is the standard for classic cars, luxury vehicles, exotic sports cars, and anything you wouldn't risk on an open carrier.",
+    mobiledesc: "Your vehicle inside a fully enclosed trailer — shielded from weather and road debris. The standard for luxury, classic, and exotic vehicles.",
     bestFor: ["Classic and collector cars", "Luxury vehicles (BMW, Mercedes, Porsche, etc.)", "Exotic and sports cars", "Freshly painted or restored vehicles"],
     notFor: ["Anyone on a tight budget. Open transport is just as safe for daily drivers."],
   },
@@ -36,6 +38,7 @@ const services = [
     price: "Custom Quote",
     headline: "Doesn't drive? Still ships.",
     desc: "We transport vehicles that can't be driven under their own power. Using specialized winch-loading equipment and flatbed carriers, we can move salvage vehicles, project cars, flood vehicles, and anything else that needs to get from A to B.",
+    mobiledesc: "Doesn't run? We use winch-loading equipment to move salvage, project, and non-running vehicles anywhere in the US.",
     bestFor: ["Project and restoration vehicles", "Salvage and auction purchases", "Flood-damaged or accident vehicles", "Vehicles with mechanical failures"],
     notFor: ["Nothing. If it doesn't drive, we can still move it."],
   },
@@ -46,6 +49,7 @@ const services = [
     price: "Included",
     headline: "From your driveway. To theirs.",
     desc: "We pick up from your address and deliver directly to the destination address. No terminal drop-offs, no extra trips. The driver arranges a time that works for you, and that's it.",
+    mobiledesc: "Pickup at your address, delivery to the destination. No terminal drop-offs, no extra trips.",
     bestFor: ["Anyone who wants maximum convenience", "Multi-state relocations", "Snowbirds and seasonal moves", "Anyone who's used a terminal before and hated it"],
     notFor: ["Addresses with very low clearance or tight access. Contact us to discuss alternatives."],
   },
@@ -88,14 +92,14 @@ export default function ServicesPage() {
       {/* Service cards */}
       <section style={{ padding: "5rem 1.5rem", background: "#F8F9FA" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "2rem" }}>
-          {services.map(({ icon: Icon, title, tag, price, headline, desc, bestFor, notFor }) => (
-            <div key={title} style={{ background: "#FFFFFF", border: "1px solid #EBEBEB", borderRadius: "14px", padding: "2.5rem", boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 6px 20px rgba(0,0,0,0.04)" }}>
+          {services.map(({ icon: Icon, title, tag, price, headline, desc, mobiledesc, bestFor, notFor }) => (
+            <div key={title} className="service-card" style={{ background: "#FFFFFF", border: "1px solid #EBEBEB", borderRadius: "14px", padding: "2.5rem", boxShadow: "0 1px 4px rgba(0,0,0,0.06), 0 6px 20px rgba(0,0,0,0.04)" }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem", alignItems: "start" }} className="service-row">
                 {/* Left */}
                 <div>
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1.25rem" }}>
+                  <div className="service-header" style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1.25rem" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
-                      <div style={{ width: "48px", height: "48px", borderRadius: "10px", background: "rgba(242,92,5,0.10)", border: "1px solid rgba(242,92,5,0.18)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{ width: "48px", height: "48px", borderRadius: "10px", background: "rgba(242,92,5,0.10)", border: "1px solid rgba(242,92,5,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                         <Icon size={22} style={{ color: "#F25C05" }} />
                       </div>
                       <div>
@@ -103,10 +107,11 @@ export default function ServicesPage() {
                         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 800, textTransform: "uppercase", color: "#1A1A1A" }}>{title}</h2>
                       </div>
                     </div>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 800, color: "#F25C05", flexShrink: 0 }}>{price}</div>
+                    <div className="service-price" style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 800, color: "#F25C05", flexShrink: 0 }}>{price}</div>
                   </div>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9375rem", fontStyle: "italic", color: "#636666", marginBottom: "0.875rem" }}>{headline}</p>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "#636666", lineHeight: 1.7 }}>{desc}</p>
+                  <p className="service-desc-full" style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "#636666", lineHeight: 1.7 }}>{desc}</p>
+                  <p className="service-desc-mobile" style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "#636666", lineHeight: 1.7 }}>{mobiledesc}</p>
                   <div style={{ marginTop: "1.5rem" }}>
                     <Link href="/get-quote" className="btn-orange" style={{ fontSize: "0.875rem" }}>
                       Get a Quote <ArrowRight size={15} />
@@ -189,8 +194,14 @@ export default function ServicesPage() {
       </section>
 
       <style>{`
+        .service-desc-mobile { display: none; }
         @media (max-width: 768px) {
           .service-row { grid-template-columns: 1fr !important; }
+          .service-card { padding: 1.25rem !important; }
+          .service-header { flex-wrap: wrap; gap: 0.5rem !important; }
+          .service-price { width: 100%; font-size: 1.25rem !important; margin-top: 0.25rem; }
+          .service-desc-full { display: none !important; }
+          .service-desc-mobile { display: block !important; }
         }
       `}</style>
     </>

@@ -114,7 +114,7 @@ export default function HowItWorksPage() {
                 <div style={{ width: "56px", height: "56px", borderRadius: "12px", background: "rgba(242,92,5,0.10)", border: "1px solid rgba(242,92,5,0.22)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Icon size={24} style={{ color: "#F25C05" }} />
                 </div>
-                <div style={{ width: "1px", height: "100%", minHeight: "80px", background: "linear-gradient(to bottom, rgba(242,92,5,0.3), transparent)" }} />
+                <div className="step-connector" style={{ width: "1px", height: "100%", minHeight: "80px", background: "linear-gradient(to bottom, rgba(242,92,5,0.3), transparent)" }} />
               </div>
 
               {/* Right: content */}
@@ -201,7 +201,8 @@ export default function HowItWorksPage() {
 
       <style>{`
         @media (max-width: 600px) {
-          .step-row { grid-template-columns: 1fr !important; }
+          .step-row { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+          .step-connector { display: none !important; }
         }
       `}</style>
     </>

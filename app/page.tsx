@@ -4,7 +4,6 @@ import {
   Shield,
   DollarSign,
   MapPin,
-  Star,
   ChevronDown,
   CheckCircle,
   Truck,
@@ -13,6 +12,7 @@ import {
   Navigation,
 } from "lucide-react";
 import { HeroQuoteBar } from "@/components/ui/HeroQuoteBar";
+import { TestimonialsCarousel } from "@/components/ui/TestimonialsCarousel";
 
 const trustItems = [
   { icon: Shield, label: "FMCSA Licensed Carriers" },
@@ -76,26 +76,6 @@ const services = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Marcus T.",
-    location: "Chicago → Los Angeles",
-    text: "Shipping my car cross-country seemed daunting. US AutoMovers made it simple. Price was exactly what they quoted, no surprises. Car arrived in perfect shape.",
-    rating: 5,
-  },
-  {
-    name: "Rachel M.",
-    location: "New York → Miami",
-    text: "I could track my car through the portal the entire time. That peace of mind was worth everything. Driver was professional and on time.",
-    rating: 5,
-  },
-  {
-    name: "David K.",
-    location: "Phoenix → Denver",
-    text: "Called three companies. US AutoMovers was the only one that gave me a firm price upfront. No haggling, no bait-and-switch. Booked immediately.",
-    rating: 5,
-  },
-];
 
 const faqs = [
   {
@@ -305,26 +285,7 @@ export default function HomePage() {
             <div className="section-tag" style={{ justifyContent: "center" }}>Customer Stories</div>
             <h2 className="display-font" style={{ fontSize: "clamp(2.5rem,4vw,4.5rem)", color: "#1A1A1A" }}>Delivered on Every Promise</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "1.5rem" }}>
-            {testimonials.map(({ name, location, text, rating }) => (
-              <div key={name} className="card" style={{ padding: "2rem" }}>
-                <div style={{ display: "flex", gap: "0.25rem", marginBottom: "1rem" }}>
-                  {Array.from({ length: rating }).map((_, i) => (
-                    <Star key={i} size={16} style={{ color: "#F25C05", fill: "#F25C05" }} />
-                  ))}
-                </div>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9375rem", lineHeight: 1.7, color: "#4A4A4A", marginBottom: "1.5rem", fontStyle: "italic" }}>
-                  &ldquo;{text}&rdquo;
-                </p>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                  <div style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: "0.9rem", color: "#1A1A1A" }}>{name}</div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "#F25C05", background: "rgba(242,92,5,0.08)", border: "1px solid rgba(242,92,5,0.15)", borderRadius: "4px", padding: "0.25rem 0.5rem", display: "flex", alignItems: "center", gap: "0.25rem" }}>
-                    <MapPin size={11} />{location}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
