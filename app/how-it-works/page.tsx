@@ -106,7 +106,7 @@ export default function HowItWorksPage() {
 
       {/* Steps */}
       <section style={{ padding: "5rem 1.5rem", background: "#F8F9FA" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "4rem" }}>
+        <div className="steps-list" style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "4rem" }}>
           {steps.map(({ icon: Icon, step, title, summary, details, note }) => (
             <div key={step} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "2rem", alignItems: "start" }} className="step-row">
               {/* Left: icon + connector */}
@@ -127,7 +127,7 @@ export default function HowItWorksPage() {
 
                 {/* Detail card */}
                 <div style={{ background: "#FFFFFF", border: "1px solid #EBEBEB", borderRadius: "12px", padding: "1.5rem", marginBottom: "1rem", boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 4px 14px rgba(0,0,0,0.04)" }}>
-                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+                  <ul className="step-detail-list" style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
                     {details.map((d, i) => (
                       <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "#4A4A4A", lineHeight: 1.5 }}>
                         <CheckCircle size={15} style={{ color: "#F25C05", flexShrink: 0, marginTop: "2px" }} />
@@ -138,7 +138,7 @@ export default function HowItWorksPage() {
                 </div>
 
                 {/* Note pill */}
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(242,92,5,0.06)", border: "1px solid rgba(242,92,5,0.14)", borderRadius: "6px", padding: "0.5rem 0.875rem", fontSize: "0.8rem", fontFamily: "var(--font-body)", color: "#636666" }}>
+                <div className="step-note" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(242,92,5,0.06)", border: "1px solid rgba(242,92,5,0.14)", borderRadius: "6px", padding: "0.5rem 0.875rem", fontSize: "0.8rem", fontFamily: "var(--font-body)", color: "#636666" }}>
                   <Shield size={12} style={{ color: "#F25C05" }} />
                   {note}
                 </div>
@@ -206,6 +206,9 @@ export default function HowItWorksPage() {
           .step-ghost-number { display: none !important; }
           .step-icon-box { width: 40px !important; height: 40px !important; border-radius: 8px !important; }
           .step-heading-row { gap: 0.5rem !important; margin-bottom: 0.5rem !important; }
+          .step-detail-list li:nth-child(n+4) { display: none !important; }
+          .step-note { margin-bottom: 0 !important; }
+          .steps-list { gap: 2rem !important; }
         }
       `}</style>
     </>
