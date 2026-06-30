@@ -235,7 +235,7 @@ export default function HomePage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "start" }} className="why-grid">
             {/* Image column */}
-            <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden", minHeight: "520px" }}>
+            <div className="why-img" style={{ position: "relative", borderRadius: "16px", overflow: "hidden", minHeight: "520px" }}>
               <Image
                 src="/images/why-us-carrier.jpg"
                 alt="Car hauler loaded with vehicles"
@@ -329,6 +329,7 @@ export default function HomePage() {
           .why-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
           .section-pad { padding: 3rem 1.25rem !important; }
           .section-head { margin-bottom: 2rem !important; }
+          .why-img { min-height: unset !important; max-height: 300px; }
         }
         @media (max-width: 640px) {
           .hero-quote-bar { flex-direction: column !important; }
