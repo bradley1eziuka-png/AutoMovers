@@ -71,10 +71,15 @@ function AuthForm() {
         setErrorMsg("Password must be at least 8 characters.");
         return;
       }
-      const { error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({ email, password });
       if (error) {
         setStatus("error");
         setErrorMsg(error.message);
+        return;
+      }
+      if (data.session) {
+        router.push(redirect);
+        router.refresh();
         return;
       }
       setStatus("success");
