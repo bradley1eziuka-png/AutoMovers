@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Loader2, LogIn, UserPlus, Eye, EyeOff, Package, CheckCircle } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
@@ -24,7 +24,6 @@ const inputStyle: React.CSSProperties = {
 };
 
 function AuthForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect") || "/portal";
 
@@ -58,8 +57,7 @@ function AuthForm() {
         setErrorMsg("Invalid email or password. Please try again.");
         return;
       }
-      router.push(redirect);
-      router.refresh();
+      window.location.href = redirect;
     } else {
       if (password !== confirmPassword) {
         setStatus("error");
@@ -78,8 +76,7 @@ function AuthForm() {
         return;
       }
       if (data.session) {
-        router.push(redirect);
-        router.refresh();
+        window.location.href = redirect;
         return;
       }
       setStatus("success");
