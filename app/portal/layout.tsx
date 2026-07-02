@@ -3,9 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 
 export default async function PortalLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { session } } = await supabase.auth.getSession();
 
-  if (!user) {
+  if (!session) {
     redirect("/login?redirect=/portal");
   }
 

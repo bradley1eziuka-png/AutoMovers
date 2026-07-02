@@ -152,12 +152,13 @@ function OrderCard({ order }: { order: Order }) {
 
 export default async function PortalPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { session } } = await supabase.auth.getSession();
+  const user = session!.user;
 
   const { data: orders } = await supabase
     .from("orders")
     .select("*")
-    .eq("customer_id", user!.id)
+    .eq("customer_id", user.id)
     .order("created_at", { ascending: false });
 
   const typedOrders = (orders ?? []) as Order[];
